@@ -67,10 +67,79 @@ npm run typecheck
 
 ## Architecture
 
+**How the pieces fit together** - one Playwright runner drives all three test groups; the
+self-healing POC and the SQL runner are standalone scripts. Colours match the assessment sections.
+GitHub Actions runs the tests and the SQL checks on every push.
+
+```mermaid
+flowchart LR
+  subgraph FW["Framework · Playwright + Cucumber"]
+    direction TB
+    F["📄 .feature files<br/>Gherkin scenarios"] --> G["⚙️ bddgen<br/>features → Playwright tests"]
+    G --> R{{"🎭 Playwright runner<br/>playwright.config.ts"}}
+    ST["Step definitions"] -.-> R
+    FX["Fixtures<br/>page objects · ApiClient · state"] -.-> R
+    EN[".env<br/>API_BASE_URL · UI_BASE_URL"] -.-> R
+  end
+
+  R -->|api project| B2["B2 · API tests<br/>76 scenarios<br/>ApiClient + zod contracts"]
+  R -->|ui project| B3["B3 · UI tests<br/>Test Case 1 + 2<br/>EmiCalculatorPage"]
+  R -->|self-healing project| SH["Self-healing<br/>5 broken locators<br/>fail by design"]
+  R ~~~ HEAL["🩹 npm run heal<br/>detect → suggest → validate<br/>heuristic or Claude"]
+  R ~~~ SQL[("B4 · npm run sql<br/>SQLite in-memory<br/>checks expected rows")]
+
+  B2 -->|HTTP| B1[("B1 · Catalogue API<br/>Express + zod<br/>videos.json · channels.json")]
+  B3 -->|Chrome, ads blocked| EMI(["🌐 emicalculator.net"])
+  SH -.-> EMI
+  HEAL --> EMI
+  SQL --> REP
+
+  R --> REP["📊 reports/<br/>Playwright HTML · Cucumber HTML/JSON<br/>self-healing · SQL screenshots"]
+  HEAL --> REP
+
+  classDef fw fill:#eef2f7,stroke:#64748b,color:#0f172a
+  classDef b1 fill:#dbeafe,stroke:#2563eb,color:#0b1b3a
+  classDef b2 fill:#dcfce7,stroke:#16a34a,color:#052e16
+  classDef b3 fill:#ffedd5,stroke:#ea580c,color:#431407
+  classDef b4 fill:#ede9fe,stroke:#7c3aed,color:#2e1065
+  classDef heal fill:#fce7f3,stroke:#db2777,color:#500724
+  classDef ext fill:#f1f5f9,stroke:#334155,color:#0f172a,stroke-dasharray:4 3
+  classDef out fill:#fef9c3,stroke:#ca8a04,color:#422006
+  class F,G,R,ST,FX,EN fw
+  class B1 b1
+  class B2 b2
+  class B3 b3
+  class SQL b4
+  class SH,HEAL heal
+  class EMI ext
+  class REP out
+  style FW fill:#f8fafc,stroke:#94a3b8,color:#0f172a
 ```
-feature files ──bddgen──> Playwright runner ─┬─ api project ──> ApiClient ──HTTP──> Express API (auto-started)
-                                             ├─ ui project ───> EmiCalculatorPage ──> emicalculator.net (ads blocked)
-                                             └─ reports: Playwright HTML, Cucumber HTML/JSON
+
+**What happens in one scenario** - a Gherkin line goes to its step definition, the step uses the
+page object to drive the browser, and the value on screen is checked against my own calculation
+(Test Case 2 shown):
+
+```mermaid
+sequenceDiagram
+  autonumber
+  participant F as Feature file
+  participant S as Step definition
+  participant P as EmiCalculatorPage
+  participant B as emicalculator.net
+  participant U as utils/emi.ts
+
+  F->>S: When I use the sliders to set "10L", 12% and 5 years
+  S->>P: moveSlider("amount", 1000000) ... rate ... tenure
+  P->>B: drag handle, then arrow keys until the input reads 10,00,000
+  F->>S: Then the displayed EMI should match my calculated EMI
+  S->>U: calculateEmi(1000000, 12, 60)
+  U-->>S: ₹22,244 (own maths)
+  S->>P: getEmi()
+  P->>B: read the "Loan EMI" value
+  B-->>P: ₹22,244
+  P-->>S: 22244
+  Note over S: expect(shown).toBe(expected) ✓
 ```
 
 **Where to find each part of the assessment**
