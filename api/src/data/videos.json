@@ -1,0 +1,22 @@
+[
+  { "id": 1, "title": "Acoustic Sessions Vol. 1", "channelId": 1, "genre": "music", "durationSec": 1820, "views": 452000, "rating": 4.6, "publishedAt": "2026-01-12" },
+  { "id": 2, "title": "Speedrun World Record Attempt", "channelId": 2, "genre": "gaming", "durationSec": 5400, "views": 1290000, "rating": 4.8, "publishedAt": "2026-02-03" },
+  { "id": 3, "title": "SQL Window Functions Explained", "channelId": 3, "genre": "education", "durationSec": 1260, "views": 98000, "rating": 4.9, "publishedAt": "2026-03-21" },
+  { "id": 4, "title": "Cricket Highlights: Final Over Thriller", "channelId": 4, "genre": "sports", "durationSec": 720, "views": 2340000, "rating": 4.7, "publishedAt": "2026-04-05" },
+  { "id": 5, "title": "Building a REST API in 20 Minutes", "channelId": 5, "genre": "tech", "durationSec": 1200, "views": 143000, "rating": 4.3, "publishedAt": "2026-02-28" },
+  { "id": 6, "title": "Stand-up Special: Office Life", "channelId": 6, "genre": "comedy", "durationSec": 3600, "views": 876000, "rating": 4.1, "publishedAt": "2025-12-19" },
+  { "id": 7, "title": "Lo-fi Beats to Study To", "channelId": 1, "genre": "music", "durationSec": 7200, "views": 3100000, "rating": 4.5, "publishedAt": "2025-11-02" },
+  { "id": 8, "title": "Retro Console Tier List", "channelId": 2, "genre": "gaming", "durationSec": 2100, "views": 610000, "rating": 3.9, "publishedAt": "2026-05-14" },
+  { "id": 9, "title": "Algebra Basics for Beginners", "channelId": 3, "genre": "education", "durationSec": 1500, "views": 45000, "rating": 4.4, "publishedAt": "2025-10-08" },
+  { "id": 10, "title": "Marathon Training: Week 1", "channelId": 4, "genre": "sports", "durationSec": 960, "views": 77000, "rating": 3.6, "publishedAt": "2026-06-30" },
+  { "id": 11, "title": "Playwright vs Cypress in 2026", "channelId": 5, "genre": "tech", "durationSec": 1680, "views": 211000, "rating": 4.6, "publishedAt": "2026-07-11" },
+  { "id": 12, "title": "Improv Night Live", "channelId": 6, "genre": "comedy", "durationSec": 2700, "views": 154000, "rating": 3.8, "publishedAt": "2026-03-09" },
+  { "id": 13, "title": "Jazz Piano Masterclass", "channelId": 1, "genre": "music", "durationSec": 3300, "views": 88000, "rating": 4.9, "publishedAt": "2026-08-01" },
+  { "id": 14, "title": "Indie Game Dev Diary #4", "channelId": 2, "genre": "gaming", "durationSec": 1140, "views": 32000, "rating": 4.2, "publishedAt": "2026-08-22" },
+  { "id": 15, "title": "Photosynthesis in 10 Minutes", "channelId": 3, "genre": "education", "durationSec": 600, "views": 260000, "rating": 4.0, "publishedAt": "2026-01-30" },
+  { "id": 16, "title": "Football Tactics Breakdown", "channelId": 4, "genre": "sports", "durationSec": 1380, "views": 405000, "rating": 4.3, "publishedAt": "2025-09-17" },
+  { "id": 17, "title": "Docker for QA Engineers", "channelId": 5, "genre": "tech", "durationSec": 2280, "views": 67000, "rating": 4.7, "publishedAt": "2026-09-05" },
+  { "id": 18, "title": "Sketch Comedy Compilation", "channelId": 6, "genre": "comedy", "durationSec": 900, "views": 1520000, "rating": 4.4, "publishedAt": "2026-06-12" },
+  { "id": 19, "title": "Live Concert: Summer Festival", "channelId": 1, "genre": "music", "durationSec": 6300, "views": 990000, "rating": 4.2, "publishedAt": "2026-07-25" },
+  { "id": 20, "title": "Esports Grand Final Recap", "channelId": 2, "genre": "gaming", "durationSec": 1500, "views": 2050000, "rating": 4.6, "publishedAt": "2026-09-28" }
+]

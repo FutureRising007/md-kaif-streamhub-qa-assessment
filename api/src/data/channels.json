@@ -1,0 +1,8 @@
+[
+  { "id": 1, "name": "BeatBox Live", "country": "GB", "subscribers": 1250000, "verified": true },
+  { "id": 2, "name": "Pixel Arena", "country": "US", "subscribers": 3400000, "verified": true },
+  { "id": 3, "name": "Learn With Lina", "country": "IN", "subscribers": 870000, "verified": false },
+  { "id": 4, "name": "Stadium Pass", "country": "AU", "subscribers": 2100000, "verified": true },
+  { "id": 5, "name": "Byte Sized Tech", "country": "IN", "subscribers": 560000, "verified": false },
+  { "id": 6, "name": "Laugh Track", "country": "US", "subscribers": 1980000, "verified": true }
+]

@@ -1,0 +1,256 @@
+{
+  "engine": "heuristic",
+  "site": "https://emicalculator.net",
+  "results": [
+    {
+      "key": "loanAmountInput",
+      "kind": "positional CSS",
+      "broken": "page.locator('#emicalculatorform > div:nth-child(1) > div.col-6 > div > input')",
+      "error": "locator resolved to 0 elements (expected 1)",
+      "suggestion": {
+        "spec": {
+          "role": null,
+          "name": "Home Loan Amount",
+          "css": null,
+          "strategy": "label"
+        },
+        "reasoning": "closest match to the fingerprint: <input> id=\"loanamount\" name=\"Home Loan Amount\" (score 16.0/16, runner-up 10.4)",
+        "confidence": 1,
+        "engine": "heuristic"
+      },
+      "checks": [
+        {
+          "name": "suggestion is not brittle itself",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 1: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        },
+        {
+          "name": "element is visible",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "same element as the fingerprint",
+          "ok": true,
+          "detail": "<input> id=\"loanamount\" name=\"Home Loan Amount\""
+        },
+        {
+          "name": "behaviour probe passes",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 2: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        }
+      ],
+      "status": "healed - ready for review"
+    },
+    {
+      "key": "interestRateInput",
+      "kind": "absolute XPath",
+      "broken": "page.locator('xpath=/html/body/div[1]/div[2]/div/div[1]/form/div[2]/div[1]/div/input')",
+      "error": "locator resolved to 0 elements (expected 1)",
+      "suggestion": {
+        "spec": {
+          "role": null,
+          "name": "Interest Rate",
+          "css": null,
+          "strategy": "label"
+        },
+        "reasoning": "closest match to the fingerprint: <input> id=\"loaninterest\" name=\"Interest Rate\" (score 16.0/16, runner-up 9.7)",
+        "confidence": 1,
+        "engine": "heuristic"
+      },
+      "checks": [
+        {
+          "name": "suggestion is not brittle itself",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 1: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        },
+        {
+          "name": "element is visible",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "same element as the fingerprint",
+          "ok": true,
+          "detail": "<input> id=\"loaninterest\" name=\"Interest Rate\""
+        },
+        {
+          "name": "behaviour probe passes",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 2: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        }
+      ],
+      "status": "healed - ready for review"
+    },
+    {
+      "key": "loanTenureInput",
+      "kind": "renamed id",
+      "broken": "page.locator('#loan-tenure')",
+      "error": "locator resolved to 0 elements (expected 1)",
+      "suggestion": {
+        "spec": {
+          "role": null,
+          "name": "Loan Tenure",
+          "css": null,
+          "strategy": "label"
+        },
+        "reasoning": "closest match to the fingerprint: <input> id=\"loanterm\" name=\"Loan Tenure\" (score 16.0/16, runner-up 10.4)",
+        "confidence": 1,
+        "engine": "heuristic"
+      },
+      "checks": [
+        {
+          "name": "suggestion is not brittle itself",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 1: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        },
+        {
+          "name": "element is visible",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "same element as the fingerprint",
+          "ok": true,
+          "detail": "<input> id=\"loanterm\" name=\"Loan Tenure\""
+        },
+        {
+          "name": "behaviour probe passes",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 2: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        }
+      ],
+      "status": "healed - ready for review"
+    },
+    {
+      "key": "personalLoanTab",
+      "kind": "stale text",
+      "broken": "page.getByRole('link', { name: 'Personal Loans' })",
+      "error": "locator resolved to 0 elements (expected 1)",
+      "suggestion": {
+        "spec": {
+          "role": "link",
+          "name": "Personal Loan",
+          "css": null,
+          "strategy": "role"
+        },
+        "reasoning": "closest match to the fingerprint: <a> id=\"\" name=\"Personal Loan\" (score 16.0/16, runner-up 9.8)",
+        "confidence": 1,
+        "engine": "heuristic"
+      },
+      "checks": [
+        {
+          "name": "suggestion is not brittle itself",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 1: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        },
+        {
+          "name": "element is visible",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "same element as the fingerprint",
+          "ok": true,
+          "detail": "<a> id=\"\" name=\"Personal Loan\" parent=\"#personal-loan\""
+        },
+        {
+          "name": "behaviour probe passes",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 2: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        }
+      ],
+      "status": "healed - ready for review"
+    },
+    {
+      "key": "pieChartContainer",
+      "kind": "auto-generated id",
+      "broken": "page.locator('#highcharts-n4re2cs-0')",
+      "error": "locator resolved to 0 elements (expected 1)",
+      "suggestion": {
+        "spec": {
+          "role": null,
+          "name": null,
+          "css": "#emipiechart .highcharts-container",
+          "strategy": "css"
+        },
+        "reasoning": "closest match to the fingerprint: <div> id=\"highcharts-yeriy5w-0\" name=\"\" (score 9.0/9, runner-up 6.0)",
+        "confidence": 1,
+        "engine": "heuristic"
+      },
+      "checks": [
+        {
+          "name": "suggestion is not brittle itself",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 1: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        },
+        {
+          "name": "element is visible",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "same element as the fingerprint",
+          "ok": true,
+          "detail": "<div> id=\"highcharts-unvckx8-0\" name=\"\" parent=\"#emipiechart\""
+        },
+        {
+          "name": "behaviour probe passes",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 2: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        }
+      ],
+      "status": "healed - ready for review"
+    }
+  ]
+}

@@ -1,0 +1,5508 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "videos-api---get-by-id;get-an-existing-video",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "Get an existing video",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I send a GET request to \"/api/videos/3\"",
+            "result": {
+              "status": "passed",
+              "duration": 61000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "the response body should match the \"video\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "the returned item should have id 3",
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@smoke",
+            "line": 4
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---get-by-id;unknown-video-id-returns-404",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "Unknown video id returns 404",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I send a GET request to \"/api/videos/999\"",
+            "result": {
+              "status": "passed",
+              "duration": 26000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "the response status should be 404",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "the error code should be \"NOT_FOUND\"",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 12
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---get-by-id;invalid-video-id-is-rejected---abc",
+        "keyword": "Scenario Outline",
+        "line": 29,
+        "name": "Invalid video id is rejected - abc",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "I send a GET request to \"/api/videos/abc\"",
+            "result": {
+              "status": "passed",
+              "duration": 18000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "the error should mention the \"id\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 19
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---get-by-id;invalid-video-id-is-rejected---0",
+        "keyword": "Scenario Outline",
+        "line": 30,
+        "name": "Invalid video id is rejected - 0",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "I send a GET request to \"/api/videos/0\"",
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "the error should mention the \"id\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 19
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---get-by-id;invalid-video-id-is-rejected----1",
+        "keyword": "Scenario Outline",
+        "line": 31,
+        "name": "Invalid video id is rejected - -1",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "I send a GET request to \"/api/videos/-1\"",
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "the error should mention the \"id\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 19
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---get-by-id;invalid-video-id-is-rejected---1.5",
+        "keyword": "Scenario Outline",
+        "line": 32,
+        "name": "Invalid video id is rejected - 1.5",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "I send a GET request to \"/api/videos/1.5\"",
+            "result": {
+              "status": "passed",
+              "duration": 10000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "the error should mention the \"id\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 19
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "api-›-videos-api---get-by-id",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Videos API - get by id",
+    "tags": [
+      {
+        "name": "@api",
+        "line": 1
+      },
+      {
+        "name": "@videos",
+        "line": 1
+      }
+    ],
+    "uri": "tests\\features\\api\\video-by-id.feature"
+  },
+  {
+    "description": "  GET /api/channels (filter by country / verified, sort, paginate) and GET /api/channels/:id.\n  The mock data has 6 channels.",
+    "elements": [
+      {
+        "description": "",
+        "id": "channels-api;list-channels-with-defaults",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "List channels with defaults",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I send a GET request to \"/api/channels\"",
+            "result": {
+              "status": "passed",
+              "duration": 89000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the response body should match the \"channel list\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "the total should be 6 with 1 page",
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "the items should be sorted by \"name\" in ascending order",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          },
+          {
+            "name": "@smoke",
+            "line": 6
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;filter-channels-by-country---in",
+        "keyword": "Scenario Outline",
+        "line": 23,
+        "name": "Filter channels by country - IN",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "I send a GET request to \"/api/channels?country=IN\"",
+            "result": {
+              "status": "passed",
+              "duration": 16000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "every item should have \"country\" equal to \"IN\"",
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "the response should contain 2 items",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;filter-channels-by-country---us",
+        "keyword": "Scenario Outline",
+        "line": 24,
+        "name": "Filter channels by country - US",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "I send a GET request to \"/api/channels?country=US\"",
+            "result": {
+              "status": "passed",
+              "duration": 13000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "every item should have \"country\" equal to \"US\"",
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "the response should contain 2 items",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;filter-channels-by-country---gb",
+        "keyword": "Scenario Outline",
+        "line": 25,
+        "name": "Filter channels by country - GB",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "I send a GET request to \"/api/channels?country=GB\"",
+            "result": {
+              "status": "passed",
+              "duration": 13000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "every item should have \"country\" equal to \"GB\"",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "the response should contain 1 items",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;filter-channels-by-verified=true",
+        "keyword": "Scenario Outline",
+        "line": 35,
+        "name": "Filter channels by verified=true",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 28,
+            "name": "I send a GET request to \"/api/channels?verified=true\"",
+            "result": {
+              "status": "passed",
+              "duration": 12000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 29,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "every item should have \"verified\" equal to \"true\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 31,
+            "name": "the response should contain 4 items",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;filter-channels-by-verified=false",
+        "keyword": "Scenario Outline",
+        "line": 36,
+        "name": "Filter channels by verified=false",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 28,
+            "name": "I send a GET request to \"/api/channels?verified=false\"",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 29,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "every item should have \"verified\" equal to \"false\"",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 31,
+            "name": "the response should contain 2 items",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;country-with-no-channels-returns-an-empty-list",
+        "keyword": "Scenario",
+        "line": 38,
+        "name": "Country with no channels returns an empty list",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 39,
+            "name": "I send a GET request to \"/api/channels?country=FR\"",
+            "result": {
+              "status": "passed",
+              "duration": 10000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 40,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 41,
+            "name": "the response should contain 0 items",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;sort-channels-by-name-asc",
+        "keyword": "Scenario Outline",
+        "line": 50,
+        "name": "Sort channels by name asc",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 44,
+            "name": "I send a GET request to \"/api/channels?sortBy=name&order=asc\"",
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 45,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 46,
+            "name": "the items should be sorted by \"name\" in ascending order",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;sort-channels-by-name-desc",
+        "keyword": "Scenario Outline",
+        "line": 51,
+        "name": "Sort channels by name desc",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 44,
+            "name": "I send a GET request to \"/api/channels?sortBy=name&order=desc\"",
+            "result": {
+              "status": "passed",
+              "duration": 13000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 45,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 46,
+            "name": "the items should be sorted by \"name\" in descending order",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;sort-channels-by-subscribers-asc",
+        "keyword": "Scenario Outline",
+        "line": 52,
+        "name": "Sort channels by subscribers asc",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 44,
+            "name": "I send a GET request to \"/api/channels?sortBy=subscribers&order=asc\"",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 45,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 46,
+            "name": "the items should be sorted by \"subscribers\" in ascending order",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;sort-channels-by-subscribers-desc",
+        "keyword": "Scenario Outline",
+        "line": 53,
+        "name": "Sort channels by subscribers desc",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 44,
+            "name": "I send a GET request to \"/api/channels?sortBy=subscribers&order=desc\"",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 45,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 46,
+            "name": "the items should be sorted by \"subscribers\" in descending order",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;filter-and-sort-together",
+        "keyword": "Scenario",
+        "line": 55,
+        "name": "Filter and sort together",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 56,
+            "name": "I send a GET request to \"/api/channels?verified=true&sortBy=subscribers&order=desc\"",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 57,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 58,
+            "name": "the item ids should be \"2, 4, 6, 1\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;paginate-channels",
+        "keyword": "Scenario",
+        "line": 60,
+        "name": "Paginate channels",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 61,
+            "name": "I send a GET request to \"/api/channels?page=2&limit=4\"",
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 62,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 63,
+            "name": "the response should contain 2 items",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 64,
+            "name": "the total should be 6 with 2 pages",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 65,
+            "name": "the items should be items 5 to 6 of \"/api/channels\"",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;get-an-existing-channel",
+        "keyword": "Scenario",
+        "line": 68,
+        "name": "Get an existing channel",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 69,
+            "name": "I send a GET request to \"/api/channels/2\"",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 70,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 71,
+            "name": "the response body should match the \"channel\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 72,
+            "name": "the returned item should have id 2",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          },
+          {
+            "name": "@smoke",
+            "line": 67
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;unknown-channel-id-returns-404",
+        "keyword": "Scenario",
+        "line": 75,
+        "name": "Unknown channel id returns 404",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 76,
+            "name": "I send a GET request to \"/api/channels/99\"",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 77,
+            "name": "the response status should be 404",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 78,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 79,
+            "name": "the error code should be \"NOT_FOUND\"",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 74
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;invalid-channels-request-is-rejected---country-lowercase",
+        "keyword": "Scenario Outline",
+        "line": 91,
+        "name": "Invalid channels request is rejected - country lowercase",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 83,
+            "name": "I send a GET request to \"/api/channels?country=in\"",
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 84,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 85,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 86,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 87,
+            "name": "the error should mention the \"country\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 81
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;invalid-channels-request-is-rejected---country-3-letters",
+        "keyword": "Scenario Outline",
+        "line": 92,
+        "name": "Invalid channels request is rejected - country 3 letters",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 83,
+            "name": "I send a GET request to \"/api/channels?country=IND\"",
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 84,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 85,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 86,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 87,
+            "name": "the error should mention the \"country\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 81
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;invalid-channels-request-is-rejected---verified-not-boolean",
+        "keyword": "Scenario Outline",
+        "line": 93,
+        "name": "Invalid channels request is rejected - verified not boolean",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 83,
+            "name": "I send a GET request to \"/api/channels?verified=yes\"",
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 84,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 85,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 86,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 87,
+            "name": "the error should mention the \"verified\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 81
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;invalid-channels-request-is-rejected---unsupported-sort",
+        "keyword": "Scenario Outline",
+        "line": 94,
+        "name": "Invalid channels request is rejected - unsupported sort",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 83,
+            "name": "I send a GET request to \"/api/channels?sortBy=views\"",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 84,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 85,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 86,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 87,
+            "name": "the error should mention the \"sortBy\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 81
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;invalid-channels-request-is-rejected---limit-above-max",
+        "keyword": "Scenario Outline",
+        "line": 95,
+        "name": "Invalid channels request is rejected - limit above max",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 83,
+            "name": "I send a GET request to \"/api/channels?limit=100\"",
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 84,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 85,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 86,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 87,
+            "name": "the error should mention the \"limit\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 81
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;invalid-channels-request-is-rejected---unknown-parameter",
+        "keyword": "Scenario Outline",
+        "line": 96,
+        "name": "Invalid channels request is rejected - unknown parameter",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 83,
+            "name": "I send a GET request to \"/api/channels?genre=music\"",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 84,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 85,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 86,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 87,
+            "name": "the error should mention the \"genre\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 81
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "channels-api;invalid-channels-request-is-rejected---id-not-a-number",
+        "keyword": "Scenario Outline",
+        "line": 97,
+        "name": "Invalid channels request is rejected - id not a number",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 83,
+            "name": "I send a GET request to \"/api/channels/abc\"",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 84,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 85,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 86,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 87,
+            "name": "the error should mention the \"id\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@channels",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 81
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "api-›-channels-api",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Channels API",
+    "tags": [
+      {
+        "name": "@api",
+        "line": 1
+      },
+      {
+        "name": "@channels",
+        "line": 1
+      }
+    ],
+    "uri": "tests\\features\\api\\channels.feature"
+  },
+  {
+    "description": "  GET /api/videos supports filtering, search, sorting and pagination.\n  The mock data has 20 videos across 6 genres and 6 channels.",
+    "elements": [
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;list-videos-with-default-pagination",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "List videos with default pagination",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I send a GET request to \"/api/videos\"",
+            "result": {
+              "status": "passed",
+              "duration": 96000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 10000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the response body should match the \"video list\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 22000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "the pagination should be page 1 with limit 10",
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "the total should be 20 with 2 pages",
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "the items should be sorted by \"publishedAt\" in descending order",
+            "result": {
+              "status": "passed",
+              "duration": 10000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@smoke",
+            "line": 6
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;filter-videos-by-genre---music",
+        "keyword": "Scenario Outline",
+        "line": 24,
+        "name": "Filter videos by genre - music",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 17,
+            "name": "I send a GET request to \"/api/videos?genre=music\"",
+            "result": {
+              "status": "passed",
+              "duration": 21000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "the response body should match the \"video list\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "every item should have \"genre\" equal to \"music\"",
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;filter-videos-by-genre---gaming",
+        "keyword": "Scenario Outline",
+        "line": 25,
+        "name": "Filter videos by genre - gaming",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 17,
+            "name": "I send a GET request to \"/api/videos?genre=gaming\"",
+            "result": {
+              "status": "passed",
+              "duration": 23000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "the response body should match the \"video list\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "every item should have \"genre\" equal to \"gaming\"",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;filter-videos-by-genre---education",
+        "keyword": "Scenario Outline",
+        "line": 26,
+        "name": "Filter videos by genre - education",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 17,
+            "name": "I send a GET request to \"/api/videos?genre=education\"",
+            "result": {
+              "status": "passed",
+              "duration": 12000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "the response body should match the \"video list\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "every item should have \"genre\" equal to \"education\"",
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;filter-videos-by-genre---sports",
+        "keyword": "Scenario Outline",
+        "line": 27,
+        "name": "Filter videos by genre - sports",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 17,
+            "name": "I send a GET request to \"/api/videos?genre=sports\"",
+            "result": {
+              "status": "passed",
+              "duration": 10000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "the response body should match the \"video list\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "every item should have \"genre\" equal to \"sports\"",
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;filter-videos-by-genre---tech",
+        "keyword": "Scenario Outline",
+        "line": 28,
+        "name": "Filter videos by genre - tech",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 17,
+            "name": "I send a GET request to \"/api/videos?genre=tech\"",
+            "result": {
+              "status": "passed",
+              "duration": 10000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "the response body should match the \"video list\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "every item should have \"genre\" equal to \"tech\"",
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;filter-videos-by-genre---comedy",
+        "keyword": "Scenario Outline",
+        "line": 29,
+        "name": "Filter videos by genre - comedy",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 17,
+            "name": "I send a GET request to \"/api/videos?genre=comedy\"",
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "the response body should match the \"video list\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "every item should have \"genre\" equal to \"comedy\"",
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;filter-videos-by-channel",
+        "keyword": "Scenario",
+        "line": 31,
+        "name": "Filter videos by channel",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 32,
+            "name": "I send a GET request to \"/api/videos?channelId=1\"",
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 33,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 34,
+            "name": "every item should have \"channelId\" equal to \"1\"",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 35,
+            "name": "the total should be 4 with 1 page",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;filter-videos-by-minimum-rating",
+        "keyword": "Scenario",
+        "line": 37,
+        "name": "Filter videos by minimum rating",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 38,
+            "name": "I send a GET request to \"/api/videos?minRating=4.6&limit=50\"",
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 39,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 40,
+            "name": "every item should have \"rating\" of at least 4.6",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;minimum-rating-is-inclusive",
+        "keyword": "Scenario",
+        "line": 43,
+        "name": "Minimum rating is inclusive",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 45,
+            "name": "I send a GET request to \"/api/videos?minRating=4.9&sortBy=title&order=asc\"",
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 46,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 47,
+            "name": "the item ids should be \"13, 3\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@boundary",
+            "line": 42
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;search-is-case-insensitive",
+        "keyword": "Scenario",
+        "line": 49,
+        "name": "Search is case insensitive",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 50,
+            "name": "I send a GET request to \"/api/videos?q=LIVE\"",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 51,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 52,
+            "name": "every item \"title\" should contain \"live\" ignoring case",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 53,
+            "name": "the response should contain 2 items",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;search-with-no-matches-returns-an-empty-list,-not-an-error",
+        "keyword": "Scenario",
+        "line": 55,
+        "name": "Search with no matches returns an empty list, not an error",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 56,
+            "name": "I send a GET request to \"/api/videos?q=nothing-matches-this\"",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 57,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 58,
+            "name": "the response should contain 0 items",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 59,
+            "name": "the total should be 0 with 0 pages",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;sort-videos-by-title-asc",
+        "keyword": "Scenario Outline",
+        "line": 68,
+        "name": "Sort videos by title asc",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 62,
+            "name": "I send a GET request to \"/api/videos?sortBy=title&order=asc&limit=50\"",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 63,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 64,
+            "name": "the items should be sorted by \"title\" in ascending order",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;sort-videos-by-title-desc",
+        "keyword": "Scenario Outline",
+        "line": 69,
+        "name": "Sort videos by title desc",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 62,
+            "name": "I send a GET request to \"/api/videos?sortBy=title&order=desc&limit=50\"",
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 63,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 64,
+            "name": "the items should be sorted by \"title\" in descending order",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;sort-videos-by-views-asc",
+        "keyword": "Scenario Outline",
+        "line": 70,
+        "name": "Sort videos by views asc",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 62,
+            "name": "I send a GET request to \"/api/videos?sortBy=views&order=asc&limit=50\"",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 63,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 64,
+            "name": "the items should be sorted by \"views\" in ascending order",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;sort-videos-by-views-desc",
+        "keyword": "Scenario Outline",
+        "line": 71,
+        "name": "Sort videos by views desc",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 62,
+            "name": "I send a GET request to \"/api/videos?sortBy=views&order=desc&limit=50\"",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 63,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 64,
+            "name": "the items should be sorted by \"views\" in descending order",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;sort-videos-by-rating-asc",
+        "keyword": "Scenario Outline",
+        "line": 72,
+        "name": "Sort videos by rating asc",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 62,
+            "name": "I send a GET request to \"/api/videos?sortBy=rating&order=asc&limit=50\"",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 63,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 64,
+            "name": "the items should be sorted by \"rating\" in ascending order",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;sort-videos-by-rating-desc",
+        "keyword": "Scenario Outline",
+        "line": 73,
+        "name": "Sort videos by rating desc",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 62,
+            "name": "I send a GET request to \"/api/videos?sortBy=rating&order=desc&limit=50\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 63,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 64,
+            "name": "the items should be sorted by \"rating\" in descending order",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;sort-videos-by-publishedat-asc",
+        "keyword": "Scenario Outline",
+        "line": 74,
+        "name": "Sort videos by publishedAt asc",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 62,
+            "name": "I send a GET request to \"/api/videos?sortBy=publishedAt&order=asc&limit=50\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 63,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 64,
+            "name": "the items should be sorted by \"publishedAt\" in ascending order",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;sort-videos-by-publishedat-desc",
+        "keyword": "Scenario Outline",
+        "line": 75,
+        "name": "Sort videos by publishedAt desc",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 62,
+            "name": "I send a GET request to \"/api/videos?sortBy=publishedAt&order=desc&limit=50\"",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 63,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 64,
+            "name": "the items should be sorted by \"publishedAt\" in descending order",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;combine-filters,-sorting-and-search",
+        "keyword": "Scenario",
+        "line": 77,
+        "name": "Combine filters, sorting and search",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 78,
+            "name": "I send a GET request to \"/api/videos?genre=music&minRating=4.5&sortBy=views&order=desc\"",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 79,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 80,
+            "name": "the item ids should be \"7, 1, 13\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;second-page-returns-the-next-slice-of-results",
+        "keyword": "Scenario",
+        "line": 82,
+        "name": "Second page returns the next slice of results",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 83,
+            "name": "I send a GET request to \"/api/videos?page=2&limit=5\"",
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 84,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 85,
+            "name": "the pagination should be page 2 with limit 5",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 86,
+            "name": "the total should be 20 with 4 pages",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 87,
+            "name": "the items should be items 6 to 10 of \"/api/videos?limit=50\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;page-past-the-end-returns-an-empty-list",
+        "keyword": "Scenario",
+        "line": 89,
+        "name": "Page past the end returns an empty list",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 90,
+            "name": "I send a GET request to \"/api/videos?page=5&limit=5\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 91,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 92,
+            "name": "the response should contain 0 items",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 93,
+            "name": "the total should be 20 with 4 pages",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;limit-boundaries-are-accepted---limit=1",
+        "keyword": "Scenario Outline",
+        "line": 103,
+        "name": "Limit boundaries are accepted - limit=1",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 97,
+            "name": "I send a GET request to \"/api/videos?limit=1\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 98,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 99,
+            "name": "the response should contain 1 items",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@boundary",
+            "line": 95
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;limit-boundaries-are-accepted---limit=50",
+        "keyword": "Scenario Outline",
+        "line": 104,
+        "name": "Limit boundaries are accepted - limit=50",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 97,
+            "name": "I send a GET request to \"/api/videos?limit=50\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 98,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 99,
+            "name": "the response should contain 20 items",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@boundary",
+            "line": 95
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---limit-zero",
+        "keyword": "Scenario Outline",
+        "line": 117,
+        "name": "Invalid query parameter is rejected - limit zero",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?limit=0\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"limit\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---limit-above-max",
+        "keyword": "Scenario Outline",
+        "line": 118,
+        "name": "Invalid query parameter is rejected - limit above max",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?limit=51\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"limit\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---limit-not-a-number",
+        "keyword": "Scenario Outline",
+        "line": 119,
+        "name": "Invalid query parameter is rejected - limit not a number",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?limit=abc\"",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"limit\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---limit-decimal",
+        "keyword": "Scenario Outline",
+        "line": 120,
+        "name": "Invalid query parameter is rejected - limit decimal",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?limit=2.5\"",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"limit\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---page-zero",
+        "keyword": "Scenario Outline",
+        "line": 121,
+        "name": "Invalid query parameter is rejected - page zero",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?page=0\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"page\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---page-negative",
+        "keyword": "Scenario Outline",
+        "line": 122,
+        "name": "Invalid query parameter is rejected - page negative",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?page=-1\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"page\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---unsupported-sort-field",
+        "keyword": "Scenario Outline",
+        "line": 123,
+        "name": "Invalid query parameter is rejected - unsupported sort field",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?sortBy=likes\"",
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"sortBy\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---unsupported-order",
+        "keyword": "Scenario Outline",
+        "line": 124,
+        "name": "Invalid query parameter is rejected - unsupported order",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?order=up\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"order\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---unknown-genre",
+        "keyword": "Scenario Outline",
+        "line": 125,
+        "name": "Invalid query parameter is rejected - unknown genre",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?genre=jazz\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"genre\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---genre-wrong-case",
+        "keyword": "Scenario Outline",
+        "line": 126,
+        "name": "Invalid query parameter is rejected - genre wrong case",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?genre=Music\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"genre\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---duplicated-genre",
+        "keyword": "Scenario Outline",
+        "line": 127,
+        "name": "Invalid query parameter is rejected - duplicated genre",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?genre=music&genre=gaming\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"genre\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---rating-above-5",
+        "keyword": "Scenario Outline",
+        "line": 128,
+        "name": "Invalid query parameter is rejected - rating above 5",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?minRating=6\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"minRating\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---rating-below-0",
+        "keyword": "Scenario Outline",
+        "line": 129,
+        "name": "Invalid query parameter is rejected - rating below 0",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?minRating=-1\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"minRating\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---rating-not-a-number",
+        "keyword": "Scenario Outline",
+        "line": 130,
+        "name": "Invalid query parameter is rejected - rating not a number",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?minRating=4.5abc\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"minRating\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---channelid-zero",
+        "keyword": "Scenario Outline",
+        "line": 131,
+        "name": "Invalid query parameter is rejected - channelId zero",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?channelId=0\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"channelId\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---search-too-short",
+        "keyword": "Scenario Outline",
+        "line": 132,
+        "name": "Invalid query parameter is rejected - search too short",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?q=a\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"q\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---search-only-spaces",
+        "keyword": "Scenario Outline",
+        "line": 133,
+        "name": "Invalid query parameter is rejected - search only spaces",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?q=%20%20%20\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"q\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---unknown-parameter",
+        "keyword": "Scenario Outline",
+        "line": 134,
+        "name": "Invalid query parameter is rejected - unknown parameter",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?foo=bar\"",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"foo\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "videos-api---list-endpoint;invalid-query-parameter-is-rejected---typo-in-parameter-name",
+        "keyword": "Scenario Outline",
+        "line": 135,
+        "name": "Invalid query parameter is rejected - typo in parameter name",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I send a GET request to \"/api/videos?gnere=music\"",
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the response status should be 400",
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 111,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 112,
+            "name": "the error code should be \"VALIDATION_ERROR\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 113,
+            "name": "the error should mention the \"gnere\" parameter",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@videos",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "api-›-videos-api---list-endpoint",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Videos API - list endpoint",
+    "tags": [
+      {
+        "name": "@api",
+        "line": 1
+      },
+      {
+        "name": "@videos",
+        "line": 1
+      }
+    ],
+    "uri": "tests\\features\\api\\videos.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "general-api-behaviour;health-check",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "Health check",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I send a GET request to \"/health\"",
+            "result": {
+              "status": "passed",
+              "duration": 62000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "the response status should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@smoke",
+            "line": 4
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "general-api-behaviour;unknown-route-returns-a-json-404---/api/movies",
+        "keyword": "Scenario Outline",
+        "line": 20,
+        "name": "Unknown route returns a JSON 404 - /api/movies",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "I send a GET request to \"/api/movies\"",
+            "result": {
+              "status": "passed",
+              "duration": 18000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "the response status should be 404",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "the error code should be \"NOT_FOUND\"",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 10
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "general-api-behaviour;unknown-route-returns-a-json-404---/api/videos/3/comments",
+        "keyword": "Scenario Outline",
+        "line": 21,
+        "name": "Unknown route returns a JSON 404 - /api/videos/3/comments",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "I send a GET request to \"/api/videos/3/comments\"",
+            "result": {
+              "status": "passed",
+              "duration": 12000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "the response status should be 404",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "the error code should be \"NOT_FOUND\"",
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 10
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "general-api-behaviour;unknown-route-returns-a-json-404---/",
+        "keyword": "Scenario Outline",
+        "line": 22,
+        "name": "Unknown route returns a JSON 404 - /",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "I send a GET request to \"/\"",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "the response status should be 404",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "the response should be JSON",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "the response body should match the \"error\" schema",
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "the error code should be \"NOT_FOUND\"",
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 10
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "api-›-general-api-behaviour",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "General API behaviour",
+    "tags": [
+      {
+        "name": "@api",
+        "line": 1
+      }
+    ],
+    "uri": "tests\\features\\api\\general.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "emi-calculator---pie-chart-(test-case-1);home-loan-emi-and-pie-chart---scenario-a",
+        "keyword": "Scenario Outline",
+        "line": 14,
+        "name": "Home loan EMI and pie chart - Scenario A",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I open the EMI calculator",
+            "result": {
+              "status": "passed",
+              "duration": 4942000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I select the \"Home Loan\" tab",
+            "result": {
+              "status": "passed",
+              "duration": 193000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "I enter loan amount \"25L\", interest rate 10% and tenure 10 years",
+            "result": {
+              "status": "passed",
+              "duration": 650000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "the displayed EMI should match my calculated EMI",
+            "result": {
+              "status": "passed",
+              "duration": 148000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "the pie chart should be visible",
+            "result": {
+              "status": "passed",
+              "duration": 25000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "both pie chart sections should have values greater than zero",
+            "result": {
+              "status": "passed",
+              "duration": 62000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 127000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "emi-calculator---pie-chart-(test-case-1);home-loan-emi-and-pie-chart---scenario-b",
+        "keyword": "Scenario Outline",
+        "line": 15,
+        "name": "Home loan EMI and pie chart - Scenario B",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I open the EMI calculator",
+            "result": {
+              "status": "passed",
+              "duration": 3265000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I select the \"Home Loan\" tab",
+            "result": {
+              "status": "passed",
+              "duration": 97000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "I enter loan amount \"50L\", interest rate 7.5% and tenure 15 years",
+            "result": {
+              "status": "passed",
+              "duration": 497000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "the displayed EMI should match my calculated EMI",
+            "result": {
+              "status": "passed",
+              "duration": 174000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "the pie chart should be visible",
+            "result": {
+              "status": "passed",
+              "duration": 24000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "both pie chart sections should have values greater than zero",
+            "result": {
+              "status": "passed",
+              "duration": 49000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 89000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "ui-›-emi-calculator---pie-chart-(test-case-1)",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "EMI Calculator - Pie chart (Test Case 1)",
+    "tags": [
+      {
+        "name": "@ui",
+        "line": 1
+      }
+    ],
+    "uri": "tests\\features\\ui\\emi-pie-chart.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "emi-calculator---bar-chart-(test-case-2);personal-loan-via-sliders---bar-chart-and-tooltip",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Personal loan via sliders - bar chart and tooltip",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I open the EMI calculator",
+            "result": {
+              "status": "passed",
+              "duration": 4785000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I select the \"Personal Loan\" tab",
+            "result": {
+              "status": "passed",
+              "duration": 243000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "I use the sliders to set loan amount \"10L\", interest rate 12% and tenure 5 years",
+            "result": {
+              "status": "passed",
+              "duration": 1195000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "the displayed EMI should match my calculated EMI",
+            "result": {
+              "status": "passed",
+              "duration": 89000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I change the schedule start month to \"Mar 2027\"",
+            "result": {
+              "status": "passed",
+              "duration": 512000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "the bar chart should be visible",
+            "result": {
+              "status": "passed",
+              "duration": 132000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the bar chart should have one bar for each calendar year of the loan",
+            "result": {
+              "status": "passed",
+              "duration": 64000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "the tooltip for the \"Principal\" bar of 2028 should match my payment schedule",
+            "result": {
+              "status": "passed",
+              "duration": 304000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "the tooltip for the \"Interest\" bar of 2028 should match my payment schedule",
+            "result": {
+              "status": "passed",
+              "duration": 1069000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 71000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "ui-›-emi-calculator---bar-chart-(test-case-2)",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "EMI Calculator - Bar chart (Test Case 2)",
+    "tags": [
+      {
+        "name": "@ui",
+        "line": 1
+      }
+    ],
+    "uri": "tests\\features\\ui\\emi-bar-chart.feature"
+  }
+]

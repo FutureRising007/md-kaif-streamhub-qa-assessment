@@ -1,0 +1,256 @@
+{
+  "engine": "claude (claude-opus-5-5)",
+  "site": "https://emicalculator.net",
+  "results": [
+    {
+      "key": "loanAmountInput",
+      "kind": "positional CSS",
+      "broken": "page.locator('#emicalculatorform > div:nth-child(1) > div.col-6 > div > input')",
+      "error": "locator resolved to 0 elements (expected 1)",
+      "suggestion": {
+        "spec": {
+          "strategy": "role",
+          "role": "textbox",
+          "name": "Home Loan Amount",
+          "css": null
+        },
+        "reasoning": "Candidate 39 matches the fingerprint exactly (input, textbox, 'Home Loan Amount', id loanamount). Role plus accessible name is the preferred stable locator.",
+        "confidence": 0.95,
+        "engine": "claude"
+      },
+      "checks": [
+        {
+          "name": "suggestion is not brittle itself",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 1: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        },
+        {
+          "name": "element is visible",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "same element as the fingerprint",
+          "ok": true,
+          "detail": "<input> id=\"loanamount\" name=\"Home Loan Amount\""
+        },
+        {
+          "name": "behaviour probe passes",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 2: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        }
+      ],
+      "status": "healed - ready for review"
+    },
+    {
+      "key": "interestRateInput",
+      "kind": "absolute XPath",
+      "broken": "page.locator('xpath=/html/body/div[1]/div[2]/div/div[1]/form/div[2]/div[1]/div/input')",
+      "error": "locator resolved to 0 elements (expected 1)",
+      "suggestion": {
+        "spec": {
+          "strategy": "role",
+          "role": "textbox",
+          "name": "Interest Rate",
+          "css": null
+        },
+        "reasoning": "Candidate idx 42 matches the fingerprint exactly: an input with role textbox, name 'Interest Rate' and id 'loaninterest'. Role plus accessible name is the preferred strategy. No other textbox has this name.",
+        "confidence": 0.95,
+        "engine": "claude"
+      },
+      "checks": [
+        {
+          "name": "suggestion is not brittle itself",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 1: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        },
+        {
+          "name": "element is visible",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "same element as the fingerprint",
+          "ok": true,
+          "detail": "<input> id=\"loaninterest\" name=\"Interest Rate\""
+        },
+        {
+          "name": "behaviour probe passes",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 2: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        }
+      ],
+      "status": "healed - ready for review"
+    },
+    {
+      "key": "loanTenureInput",
+      "kind": "renamed id",
+      "broken": "page.locator('#loan-tenure')",
+      "error": "locator resolved to 0 elements (expected 1)",
+      "suggestion": {
+        "spec": {
+          "strategy": "role",
+          "role": "textbox",
+          "name": "Loan Tenure",
+          "css": null
+        },
+        "reasoning": "Candidate idx 45 is an input with role textbox, name 'Loan Tenure' and id 'loanterm', matching the last known fingerprint exactly. Role plus accessible name is the preferred strategy.",
+        "confidence": 0.96,
+        "engine": "claude"
+      },
+      "checks": [
+        {
+          "name": "suggestion is not brittle itself",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 1: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        },
+        {
+          "name": "element is visible",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "same element as the fingerprint",
+          "ok": true,
+          "detail": "<input> id=\"loanterm\" name=\"Loan Tenure\""
+        },
+        {
+          "name": "behaviour probe passes",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 2: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        }
+      ],
+      "status": "healed - ready for review"
+    },
+    {
+      "key": "personalLoanTab",
+      "kind": "stale text",
+      "broken": "page.getByRole('link', { name: 'Personal Loans' })",
+      "error": "locator resolved to 0 elements (expected 1)",
+      "suggestion": {
+        "spec": {
+          "strategy": "role",
+          "role": "link",
+          "name": "Personal Loan",
+          "css": null
+        },
+        "reasoning": "Candidate 33 is an anchor with role link, name 'Personal Loan', and parentId 'personal-loan', which matches the fingerprint exactly. The broken locator used the plural 'Personal Loans'.",
+        "confidence": 0.95,
+        "engine": "claude"
+      },
+      "checks": [
+        {
+          "name": "suggestion is not brittle itself",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 1: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        },
+        {
+          "name": "element is visible",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "same element as the fingerprint",
+          "ok": true,
+          "detail": "<a> id=\"\" name=\"Personal Loan\" parent=\"#personal-loan\""
+        },
+        {
+          "name": "behaviour probe passes",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 2: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        }
+      ],
+      "status": "healed - ready for review"
+    },
+    {
+      "key": "pieChartContainer",
+      "kind": "auto-generated id",
+      "broken": "page.locator('#highcharts-n4re2cs-0')",
+      "error": "locator resolved to 0 elements (expected 1)",
+      "suggestion": {
+        "spec": {
+          "strategy": "css",
+          "role": null,
+          "name": null,
+          "css": "#emipiechart .highcharts-container"
+        },
+        "reasoning": "The fingerprint is a div.highcharts-container whose parent is #emipiechart. Candidate 66 matches exactly, but its id (highcharts-cjrdczo-0) is auto-generated, so I avoid it. I use the stable parent id plus the class instead.",
+        "confidence": 0.93,
+        "engine": "claude"
+      },
+      "checks": [
+        {
+          "name": "suggestion is not brittle itself",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 1: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        },
+        {
+          "name": "element is visible",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "name": "same element as the fingerprint",
+          "ok": true,
+          "detail": "<div> id=\"highcharts-7ozazs1-0\" name=\"\" parent=\"#emipiechart\""
+        },
+        {
+          "name": "behaviour probe passes",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "name": "load 2: matches exactly 1 element",
+          "ok": true,
+          "detail": "1 found"
+        }
+      ],
+      "status": "healed - ready for review"
+    }
+  ]
+}
